@@ -1,0 +1,40 @@
+body {
+    background-color: #132E32;
+    color: #FAF3DD;
+}
+
+.container {
+    width: 750px;
+    margin: auto;
+}
+
+.cover {
+    float: left;
+    width: 25%;
+}
+
+.cover img {
+    width: 100%;
+}
+
+.book-details {
+    float: left;
+    width: 70%;
+    padding-left: 15px;
+}
+
+.title-section {
+    float: left;
+    width: 50%;
+}
+
+.rating-section {
+    float: left;
+    width: 50%;
+    display: block;
+}
+
+.note-section {
+    width: 100%;
+    display: block;
+}
