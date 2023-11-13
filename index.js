@@ -26,8 +26,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
 
-app.get("/", (req, res) => {
-    res.render("index.ejs");
+app.get("/", async (req, res) => {
+    const result = await db.query("SELECT * FROM book");
+
+    res.render("index.ejs", { books: result.rows });
 });
 
 app.listen(port, () => {

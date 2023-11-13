@@ -5,7 +5,14 @@ body {
 
 .container {
     width: 750px;
+    height: 100%;
     margin: auto;
+}
+
+.card {
+    width: 100%;
+    height: 320px;
+    display: block;
 }
 
 .cover {
@@ -15,6 +22,7 @@ body {
 
 .cover img {
     width: 100%;
+    height: 315px;
 }
 
 .book-details {
@@ -31,10 +39,13 @@ body {
 .rating-section {
     float: left;
     width: 50%;
-    display: block;
 }
 
 .note-section {
+    float: left;
     width: 100%;
-    display: block;
+}
+
+.note-section p {
+    text-align: left;
 }

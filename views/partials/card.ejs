@@ -1,0 +1,31 @@
+<div class="card">
+    <div class="cover">
+        <img src=<%= book.cover_url %> />
+    </div>
+    <div class="book-details">
+        <div class="title-section">
+            <h3><%=book.title%></h3>
+            <h4><%=book.author%>, <%=book.publication_year%></h4>
+        </div>
+        <div class="rating-section">
+            <span>
+                <% for(let i = 0; i < book.rating; i++) { %>
+                    🌿
+                <% } %>
+            </span>
+            <span>
+                <% if (book.format == 1) { %>
+                    📖
+                <% } else if (book.format == 2) { %>
+                    📱
+                <% } else { %>
+                    👂
+                <% } %>
+            </span>
+        </div>
+        <div class="note-section">
+            <p><%= book.note %></p>
+            <p>Read <%=book.read_date.toDateString()%></p>
+        </div>
+    </div>
+</div>
