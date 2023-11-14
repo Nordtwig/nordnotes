@@ -1,7 +1,9 @@
 <div class="card">
-    <div class="cover">
-        <img src=<%= book.cover_url %> />
-    </div>
+    <% if (!even) { %>
+        <div class="cover">
+            <img src=<%= book.cover_url %> />
+        </div>
+    <% } %>
     <div class="book-details">
         <div class="title-section">
             <h3><%=book.title%></h3>
@@ -25,7 +27,12 @@
         </div>
         <div class="note-section">
             <p><%= book.note %></p>
-            <p>Read <%=book.read_date.toDateString()%></p>
+            <p class="read-date">Read <%=book.read_date.toDateString()%></p>
         </div>
     </div>
+    <% if (even) { %>
+        <div class="cover">
+            <img src=<%= book.cover_url %> />
+        </div>
+    <% } %>
 </div>

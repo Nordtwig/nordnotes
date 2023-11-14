@@ -28,24 +28,35 @@ body {
 .book-details {
     float: left;
     width: 70%;
+    height: 100%;
     padding-left: 15px;
 }
 
 .title-section {
     float: left;
     width: 50%;
+    height: 40%;
 }
 
 .rating-section {
     float: left;
     width: 50%;
+    height: 40%;
 }
 
 .note-section {
     float: left;
     width: 100%;
+    position: relative;
+    height: 60%;
 }
 
 .note-section p {
     text-align: left;
+}
+
+.read-date {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 5;
 }

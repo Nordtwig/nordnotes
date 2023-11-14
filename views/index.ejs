@@ -15,9 +15,8 @@
             <input type="text" placeholder="Search">
             <button><i class="fa-solid fa-magnifying-glass"></i></button>
         </header>
-        <% console.log(books.length) %>
         <% for (let book of books) { %>
-            <%- include('partials/card', { book: book }) %>
+            <%- include('partials/card', { book: book, even: books.indexOf(book) % 2 }) %>
         <% } %>
     </div>
 </body>
