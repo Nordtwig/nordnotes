@@ -1,23 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nordnotes</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>nordnotes</h1>
-            <button><i class="fa-solid fa-plus"></i></button>
-            <input type="text" placeholder="Search">
-            <button><i class="fa-solid fa-magnifying-glass"></i></button>
-        </header>
+<%- include('partials/header.ejs') %>
         <% for (let book of books) { %>
             <%- include('partials/card', { book: book, even: books.indexOf(book) % 2 }) %>
         <% } %>
-    </div>
-</body>
-</html>
+<%- include('partials/footer.ejs') %>

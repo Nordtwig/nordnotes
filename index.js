@@ -27,10 +27,24 @@ app.use(express.static(__dirname + '/public'));
 app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
 
 app.get("/", async (req, res) => {
-    const result = await db.query("SELECT * FROM book");
+    const result = await db.query("SELECT * FROM book ORDER BY read_date DESC;");
 
     res.render("index.ejs", { books: result.rows });
 });
+
+app.get("/book", (req, res) => {
+    res.render("book.ejs")
+})
+
+app.post("/book/add", async (req, res) => {
+    const query = {
+        text: "INSERT INTO book(title, author, cover_url, book_url, publication_year, format, read_date, rating, note) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9)",
+        values: [req.body.title, req.body.author, req.body.cover_url, req.body.book_url, req.body.publication_year, req.body.format, req.body.read_date, req.body.rating, req.body.note]
+    };
+
+    await db.query(query);
+    res.redirect("/");
+})
 
 app.listen(port, () => {
     console.log(`Server is live on localhost:${port}`);

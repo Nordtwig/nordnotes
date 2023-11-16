@@ -1,0 +1,24 @@
+<%- include('partials/header.ejs') %>
+        <div class="card">
+            <h1>Add or edit a book</h1>
+            <form action="/book/add" method="post">
+                <input type="text" id="title" name="title" placeholder="Book Title"><br>
+                <input type="text" id="author" name="author" placeholder="Author"><br>
+                <input type="url" id="cover-url" name="cover_url" placeholder="Cover URL"><br>
+                <input type="url" id="book-url" name="book_url" placeholder="Book URL"><br>
+                <input type="number" id="release-year" name="release_year" placeholder="Release Year (YYYY)"><br>
+                <input type="range" id="rating" name="rating" min="1" max="5">
+                <p id="rating-display">2</p><br>
+                <input type="radio" id="physical-book" name="format" value="1">
+                <label for="physical-book">📕</label><br>
+                <input type="radio" id="e-book" name="format" value="2">
+                <label for="e-book">📱</label><br>
+                <input type="radio" id="audio-book" name="format" value="3">
+                <label for="audio-book">👂</label><br>
+                <input type="date" id="read-date" name="read_date" placeholder=""><br>
+                <textarea name="note" id="" cols="30" rows="10"></textarea><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <script src="js/book.js"></script>
+<%- include('partials/footer.ejs') %>

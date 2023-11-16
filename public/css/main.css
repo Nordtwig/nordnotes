@@ -9,6 +9,10 @@ body {
     margin: auto;
 }
 
+.navbar-left h1 {
+    display: inline;
+}
+
 .card {
     width: 100%;
     height: 320px;
@@ -60,4 +64,8 @@ body {
     position: absolute;
     bottom: 0;
     margin-bottom: 5;
+}
+
+#rating-display {
+    display: inline;
 }
