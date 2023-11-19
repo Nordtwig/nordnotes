@@ -1,0 +1,24 @@
+<%- include('partials/header.ejs') %>
+        <div class="card">
+            <h1>Add or edit a book</h1>
+            <form action="/book/edit?_method=PATCH" method="POST">
+                <input type="text" id="title" name="title" placeholder="Book Title" value="<%= book?.title %>"><br>
+                <input type="text" id="author" name="author" placeholder="Author" value="<%= book?.author %>"><br>
+                <input type="url" id="cover-url" name="cover_url" placeholder="Cover URL" value="<%= book?.cover_url %>"><br>
+                <input type="url" id="book-url" name="book_url" placeholder="Book URL" value="<%= book?.book_url %>"><br>
+                <input type="number" id="publication-year" name="publication_year" placeholder="Publication Year (YYYY)" value="<%= book?.publication_year %>"><br>
+                <input type="range" id="rating" name="rating" min="1" max="5" value="<%= book?.rating %>">
+                <p id="rating-display">2</p><br>
+                <input type="radio" id="physical-book" name="format" value="1" <% if (book?.format == 1) { %> <%= checked="checked" %> <% } %>>
+                <label for="physical-book">📕</label><br>
+                <input type="radio" id="e-book" name="format" value="2"  <% if (book?.format == 2) { %> <%= checked="checked" %> <% } %>>
+                <label for="e-book">📱</label><br>
+                <input type="radio" id="audio-book" name="format" value="3"  <% if (book?.format == 3) { %> <%= checked="checked" %> <% } %>>
+                <label for="audio-book">👂</label><br>
+                <input type="date" id="read-date" name="read_date" placeholder="" value="<%- (book?.read_date.getMonth() + 1) + "/" + book?.read_date.getDate() + "/" + book?.read_date.getFullYear() %>"><br>
+                <textarea name="note" id="" cols="30" rows="10"><%= book?.note %></textarea><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <script src="/js/book.js"></script>
+<%- include('partials/footer.ejs') %>
