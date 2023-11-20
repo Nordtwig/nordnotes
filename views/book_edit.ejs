@@ -1,7 +1,7 @@
 <%- include('partials/header.ejs') %>
         <div class="card">
             <h1>Add or edit a book</h1>
-            <form action="/book/edit?_method=PATCH" method="POST">
+            <form id="bookForm" action="/book/edit">
                 <input type="text" id="title" name="title" placeholder="Book Title" value="<%= book?.title %>"><br>
                 <input type="text" id="author" name="author" placeholder="Author" value="<%= book?.author %>"><br>
                 <input type="url" id="cover-url" name="cover_url" placeholder="Cover URL" value="<%= book?.cover_url %>"><br>

@@ -6,7 +6,6 @@ import favicon from "serve-favicon";
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import path from 'path';
-import methodOverride from "method-override";
 
 const app = express();
 const port = 3000;
@@ -26,7 +25,6 @@ db.connect();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
 app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
-app.use(methodOverride('_method'));
 
 app.get("/", async (req, res) => {
     const result = await db.query("SELECT * FROM book ORDER BY read_date DESC;");
@@ -56,7 +54,7 @@ app.post("/book/add", async (req, res) => {
 
 app.patch("/book/edit", async (req, res) => {
     const query = await db.query({
-        text: "UPDATE book SET title = $2, author = $3, cover_url = $4, book_url = $5, publication_year = $6, format = $7, read_date = $8, rating = $9, note = $10 WHERE id=$1",
+        text: "UPDATE book SET title = $2r, author = $3, cover_url = $4, book_url = $5, publication_year = $6, format = $7, read_date = $8, rating = $9, note = $10 WHERE id=$1",
         values: [req.query.id, req.body.title, req.body.author, req.body.cover_url, req.body.book_url, req.body.publication_year, req.body.format, req.body.read_date, req.body.rating, req.body.note]
     });
     res.redirect("/");
