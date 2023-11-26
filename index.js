@@ -6,6 +6,7 @@ import favicon from "serve-favicon";
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import path from 'path';
+import { log } from "console";
 
 const app = express();
 const port = 3000;
@@ -45,6 +46,7 @@ app.get("/book/edit", async (req, res) => {
 });
 
 app.post("/book/add", async (req, res) => {
+    console.log(req.body);
     const query = await db.query({
         text: "INSERT INTO book(title, author, cover_url, book_url, publication_year, format, read_date, rating, note) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9)",
         values: [req.body.title, req.body.author, req.body.cover_url, req.body.book_url, req.body.publication_year, req.body.format, req.body.read_date, req.body.rating, req.body.note]
