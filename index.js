@@ -53,6 +53,7 @@ app.post("/book/add", async (req, res) => {
 });
 
 app.patch("/book/edit", async (req, res) => {
+    console.log(req.body);
     const query = await db.query({
         text: "UPDATE book SET title = $2r, author = $3, cover_url = $4, book_url = $5, publication_year = $6, format = $7, read_date = $8, rating = $9, note = $10 WHERE id=$1",
         values: [req.query.id, req.body.title, req.body.author, req.body.cover_url, req.body.book_url, req.body.publication_year, req.body.format, req.body.read_date, req.body.rating, req.body.note]
